@@ -73,9 +73,9 @@ ${data.description}
 - [Usage](#usage)
 - [Test](#test)
 - [Credits](#credits)
-- [License](#license)]
-- [Contribute](#contribute)]
-- [Questions](#questions)]
+- [License](#license)
+- [Contribute](#contribute)
+- [Questions](#questions)
 
 
 ## Installation
