@@ -27,7 +27,7 @@ There are no tests to run.
 
 ## Credits
 
-I would like to thank My friends and family, and the staff at UCSD Coding Bootcamp. for their support during the development of this application.
+I would like to thank My friends and family, and the staff at UCSD Coding Bootcamp for their support during the development of this application.
 
 ## License
 
