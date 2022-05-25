@@ -1,5 +1,10 @@
+// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown')
+
+// TODO: Create an array of questions for user input
+
 
 inquirer
     .prompt([{
@@ -38,11 +43,6 @@ inquirer
             message: 'How do you run tests on your application?',
         },
         {
-            type: 'input',
-            name: 'email',
-            message: 'What is your email address?',
-        },
-        {
             type: 'list',
             name: 'license',
             message: 'What kind of license should your project have?',
@@ -61,51 +61,20 @@ inquirer
     ])
     .then((data) => {
         const filename = "README.md";
-        console.log(filename);
-        console.log(data);
-        fs.writeFile(filename, `
-# ${data.title}
+        fs.writeFile(filename, generateMarkdown(data), (err) => err ? console.log(err) : console.log('Success!'))
+    });
 
-${data.description}
+// const questions = [
 
-## Table of contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Test](#test)
-- [Credits](#credits)
-- [License](#license)
-- [Contribute](#contribute)
-- [Questions](#questions)
+// ];
 
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {
+//     fs.writeFile('README.md', generateMarkdown(data))
+// }
 
-## Installation
+// // TODO: Create a function to initialize app
+// function init() {}
 
-${data.installation}
-
-## Usage
-
-${data.usage}
-
-## Test
-
-If you would like to run some tests, please input the following command:
-${data.test}
-
-## Credits
-
-I would like to thank ${data.credit} for their support during the development of this application.
-
-## License
-
-This project is licensed under ${data.license}.
-
-## Questions
-
-If you have any questions, please direct them towards my email at ${data.email}.  
-You can find more of my work at github.com/${data.username}.
-
-        
-        `, (err) =>
-            err ? console.log(err) : console.log('Success!'))
-
-    })
+// // Function call to initialize app
+// init();
