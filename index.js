@@ -1,11 +1,16 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+//brings in the inquirer npm for use
+
 const fs = require('fs');
+//brings in the fs npm for use
+
 const generateMarkdown = require('./utils/generateMarkdown')
+//includes the generateMarkdown file which contains the badge creation method and the method to create markdown for file
 
 // TODO: Create an array of questions for user input
 
-
+//the list of all the questions 
 inquirer
     .prompt([{
             type: 'input',
@@ -61,20 +66,10 @@ inquirer
     ])
     .then((data) => {
         const filename = "README.md";
+        //stores the string README.md in filename variable
+
         fs.writeFile(filename, generateMarkdown(data), (err) => err ? console.log(err) : console.log('Success!'))
+        //takes the data from the inquirer and performs writefile to create a file with the name README.md
+        //passes in data from the inquirer into the generateMarkdown method to create the markdown of the file
+        //if there is an error, will throw the error, else it will console log success
     });
-
-// const questions = [
-
-// ];
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-//     fs.writeFile('README.md', generateMarkdown(data))
-// }
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
